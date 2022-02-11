@@ -1,6 +1,9 @@
+let nome = "";
+
+
 function entrarSala() {
 
-    let nome = prompt("Digite o seu usuário:");
+    nome = prompt("Digite o seu usuário:");
 
     const promessa = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants",
         {
@@ -13,6 +16,7 @@ function entrarSala() {
 
     function entrar(status) {
         alert("Deu certo");
+        setInterval(verificarConexaoUsuarios, 5000);
     }
 
     function deuErro(erro) {
@@ -24,6 +28,16 @@ function entrarSala() {
         }
     }
 
+}
+
+function verificarConexaoUsuarios() {
+    const promessa = axios.post("https://mock-api.driven.com.br/api/v4/uol/status",
+        {
+            name: nome
+        }
+    );
+
+    promessa.then();
 }
 
 entrarSala();
