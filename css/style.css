@@ -7,8 +7,9 @@ body {
 }
 
 main{
-    margin-top: 80px;
+    margin-top: 95px;
     margin-bottom: 80px;
+    background-color: #f3f3f3;
 }
 
 header, footer {
@@ -52,6 +53,7 @@ input {
     border-radius: 2px;
     padding: 10px;
     z-index: 0;
+    margin-bottom: 3px;
 }
 
 .mensagemParaTodos {

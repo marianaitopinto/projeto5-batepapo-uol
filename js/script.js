@@ -15,8 +15,7 @@ function entrarSala() {
 
 }
 
-function entrar(status) {
-    alert("Deu certo");
+function entrar() {
     setInterval(verificarConexaoUsuarios, 5000);
     carregarMensagens();
 }
@@ -74,12 +73,38 @@ function renderizarMensagensTela(mensagem) {
             </div>
             `
         }
+
+        //const elementoScrolavel = document.querySelector(".mensagem");
+        //elementoScrolavel.scrollIntoView();
     })
 
 }
 
 function alertar() {
-    alert("Deu ruim no carregamento")
+    alert("Deu ruim no carregamento");
+}
+
+function enviarMensagem() {
+    let para = "Todos";
+    let tipo = "message";
+    let input = document.querySelector("input").value;
+    const inputs = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages",
+        {
+            from: nome,
+            to: para,
+            text: input,
+            type: tipo
+        }
+    );
+
+    inputs.then(renderizarMensagensTela);
+}
+
+function atualizarMensagens() {
+    let corpoMensagem = document.querySelector(".mensagensBatePapo");
+    corpoMensagem.innerHTML = "";
+    entrar();
 }
 
 entrarSala();
+setInterval(atualizarMensagens, 3000);
