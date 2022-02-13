@@ -119,6 +119,12 @@ function enviarMensagem() {
     }
 }
 
+const enviarEnter = (buttonId) => {
+    if (event.keyCode == 13) {
+        document.getElementById(`${buttonId}`).click()
+    }
+}
+
 function deslogado() {
     window.location.reload();
 }

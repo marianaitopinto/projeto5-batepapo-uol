@@ -30,8 +30,8 @@
         </main>
 
         <footer>
-            <input type="text" placeholder="Escreva aqui...">
-            <button data-identifier="send-message" onclick="enviarMensagem()"><ion-icon name="paper-plane-outline"></ion-icon></button>
+            <input onkeydown="enviarEnter('enviarMensagem')" type="text" placeholder="Escreva aqui...">
+            <button id="enviarMensagem" data-identifier="send-message" onclick="enviarMensagem()"><ion-icon name="paper-plane-outline"></ion-icon></button>
         </footer>
     </div>
 
