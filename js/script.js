@@ -1,8 +1,13 @@
 let nome = "";
 
+function entrarLogin() {
+    nome = document.querySelector(".login").value;
+    entrarSala();
+}
+
 function entrarSala() {
 
-    nome = prompt("Digite o seu usuário:");
+    
 
     const promessa = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants",
         {
@@ -16,6 +21,10 @@ function entrarSala() {
 }
 
 function entrar() {
+    const batePapo = document.querySelector(".principal");
+    batePapo.classList.remove("escondido");
+    const esconder = document.querySelector(".telaLogin");
+    esconder.classList.add("escondido")
     setInterval(verificarConexaoUsuarios, 5000);
     carregarMensagens();
 }
@@ -25,6 +34,7 @@ function deuErro(erro) {
 
     if (statusErro === 400) {
         alert("Esse usuário já está sendo utilizado!! Utilize outro.");
+        nome = prompt("Digite o seu usuário:");
         entrarSala();
     }
 }
@@ -113,5 +123,5 @@ function atualizarMensagens() {
     entrar();
 }
 
-entrarSala();
-setInterval(atualizarMensagens, 30000);
+//entrarSala();
+setInterval(atualizarMensagens, 10000);

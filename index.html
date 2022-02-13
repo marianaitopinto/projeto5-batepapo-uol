@@ -15,33 +15,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto:wght@300;400;700&display=swap"
         rel="stylesheet">
-    
+
 </head>
 
 <body>
-    <div class="principal ">
-    <header>
-        <img src="img/logo.png" alt="logo-uol">
-        <img src="img/user.png" alt="user">
-    </header>
+    <div class="principal escondido">
+        <header>
+            <img src="img/logo.png" alt="logo-uol">
+            <img src="img/user.png" alt="user">
+        </header>
 
-    <main>
-        <div class="mensagensBatePapo"></div>
-    </main>
+        <main>
+            <div class="mensagensBatePapo"></div>
+        </main>
 
-    <div class="telaEntrada"></div>
+        <footer>
+            <input type="text" placeholder="Escreva aqui...">
+            <ion-icon onclick="enviarMensagem()" class="ion-icon" name="paper-plane-outline"></ion-icon>
+        </footer>
+    </div>
 
-    <footer>
-        <input type="text" placeholder="Escreva aqui..."> 
-        <ion-icon onclick="enviarMensagem()" class="ion-icon" name="paper-plane-outline"></ion-icon>
-    </footer>
-</div>
-
-    <!--<div class="telaEntrada escondido">
-        <img src="img/logo.png" alt="logo-uol">
-        <input class="login" type="text" placeholder="Digite seu nome"> 
-        <button>Entrar</button>
-    </div>*/ -->
+    <div class="telaLogin">
+        <div class="telaEntrada">
+            <img src="img/logo.png" alt="logo-uol">
+            <input class="login" type="text" placeholder="Digite seu nome">
+            <button onclick="entrarLogin()">Entrar</button>
+        </div>
+    </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/script.js"></script>
