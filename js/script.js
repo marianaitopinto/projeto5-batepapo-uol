@@ -49,6 +49,7 @@ function carregarMensagens() {
 function renderizarMensagensTela(mensagem) {
     let dadosMensagens = mensagem.data;
     let corpoMensagem = document.querySelector(".mensagensBatePapo");
+    corpoMensagem.innerHTML = "";
     console.log(dadosMensagens);
 
     dadosMensagens.forEach(item => {
@@ -73,10 +74,10 @@ function renderizarMensagensTela(mensagem) {
             </div>
             `
         }
-
-        //const elementoScrolavel = document.querySelector(".mensagem");
-        //elementoScrolavel.scrollIntoView();
+        
     })
+   
+    corpoMensagem.children[corpoMensagem.children.length - 1].scrollIntoView();
 
 }
 
@@ -97,7 +98,13 @@ function enviarMensagem() {
         }
     );
 
-    inputs.then(renderizarMensagensTela);
+    inputs.then(carregarMensagens);
+    atualizarMensagens();
+    inputs.catch(deslogado);
+}
+
+function deslogado() {
+    window.location.reload();
 }
 
 function atualizarMensagens() {
@@ -107,4 +114,4 @@ function atualizarMensagens() {
 }
 
 entrarSala();
-setInterval(atualizarMensagens, 3000);
+setInterval(atualizarMensagens, 30000);
