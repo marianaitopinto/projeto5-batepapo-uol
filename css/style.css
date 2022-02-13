@@ -39,11 +39,11 @@ footer {
     z-index: 1;
 }
 
-footer .ion-icon {
+footer button {
     font-size: 30px;
 }
 
-footer .ion-icon:hover {
+footer button:hover {
     opacity: 0.5;
 }
 
@@ -114,4 +114,8 @@ button {
     border: 1px solid #D7D7D7;
     box-sizing: border-box;
     border-radius: 4px;
+}
+
+.principal button {
+    background-color: #FFFFFF;
 }

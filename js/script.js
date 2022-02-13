@@ -2,7 +2,11 @@ let nome = "";
 
 function entrarLogin() {
     nome = document.querySelector(".login").value;
-    entrarSala();
+    if (nome == "") {
+        alert("É necessário digitar o usuário")
+    } else {
+        entrarSala();
+    }
 }
 
 function entrarSala() {
@@ -14,7 +18,6 @@ function entrarSala() {
 
     promessa.then(entrar);
     promessa.catch(deuErro);
-
 }
 
 function entrar() {
@@ -81,9 +84,9 @@ function renderizarMensagensTela(mensagem) {
             </div>
             `
         }
-        
+
     })
-   
+
     corpoMensagem.children[corpoMensagem.children.length - 1].scrollIntoView();
     setInterval(atualizarMensagens, 10000);
 }
@@ -96,19 +99,24 @@ function enviarMensagem() {
     let para = "Todos";
     let tipo = "message";
     let input = document.querySelector("footer input").value;
-    const inputs = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages",
-        {
-            from: nome,
-            to: para,
-            text: input,
-            type: tipo
-        }
-    );
 
-    inputs.then(carregarMensagens);
-    inputs.catch(deslogado);
-    atualizarMensagens();
-    limparinput();
+    if (input == "") {
+        alert("Não é possível enviar uma mensagem vazia.")
+    } else {
+        const inputs = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages",
+            {
+                from: nome,
+                to: para,
+                text: input,
+                type: tipo
+            }
+        );
+
+        inputs.then(carregarMensagens);
+        inputs.catch(deslogado);
+        atualizarMensagens();
+        limparinput();
+    }
 }
 
 function deslogado() {

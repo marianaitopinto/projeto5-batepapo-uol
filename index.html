@@ -31,15 +31,15 @@
 
         <footer>
             <input type="text" placeholder="Escreva aqui...">
-            <ion-icon onclick="enviarMensagem()" class="ion-icon" name="paper-plane-outline"></ion-icon>
+            <button data-identifier="send-message" onclick="enviarMensagem()"><ion-icon name="paper-plane-outline"></ion-icon></button>
         </footer>
     </div>
 
     <div class="telaLogin">
         <div class="telaEntrada">
             <img src="img/logo.png" alt="logo-uol">
-            <input class="login" type="text" placeholder="Digite seu nome">
-            <button onclick="entrarLogin()">Entrar</button>
+            <input data-identifier="enter-name" class="login" type="text" placeholder="Digite seu nome">
+            <button onclick="entrarLogin()" data-identifier="start">Entrar</button>
         </div>
     </div>
 
