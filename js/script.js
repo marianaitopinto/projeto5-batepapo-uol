@@ -6,9 +6,6 @@ function entrarLogin() {
 }
 
 function entrarSala() {
-
-    
-
     const promessa = axios.post("https://mock-api.driven.com.br/api/v4/uol/participants",
         {
             name: nome
@@ -88,7 +85,7 @@ function renderizarMensagensTela(mensagem) {
     })
    
     corpoMensagem.children[corpoMensagem.children.length - 1].scrollIntoView();
-
+    setInterval(atualizarMensagens, 10000);
 }
 
 function alertar() {
@@ -98,7 +95,7 @@ function alertar() {
 function enviarMensagem() {
     let para = "Todos";
     let tipo = "message";
-    let input = document.querySelector("input").value;
+    let input = document.querySelector("footer input").value;
     const inputs = axios.post("https://mock-api.driven.com.br/api/v4/uol/messages",
         {
             from: nome,
@@ -109,8 +106,9 @@ function enviarMensagem() {
     );
 
     inputs.then(carregarMensagens);
-    atualizarMensagens();
     inputs.catch(deslogado);
+    atualizarMensagens();
+    limparinput();
 }
 
 function deslogado() {
@@ -123,5 +121,8 @@ function atualizarMensagens() {
     entrar();
 }
 
+function limparinput() {
+    document.querySelector("footer input").value = "";
+}
+
 //entrarSala();
-setInterval(atualizarMensagens, 10000);

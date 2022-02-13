@@ -43,6 +43,10 @@ footer .ion-icon {
     font-size: 30px;
 }
 
+footer .ion-icon:hover {
+    opacity: 0.5;
+}
+
 input {
     width: 80vw;
     height: 35px;
@@ -80,12 +84,17 @@ span {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-between;
+    margin-top: 100px;
 }
 
 .telaEntrada img {
     width: 130px;
     height: 92px;
+    margin-bottom: 100px;
+}
+
+.telaEntrada button {
+    margin-top: 30px;
 }
 
 button {
