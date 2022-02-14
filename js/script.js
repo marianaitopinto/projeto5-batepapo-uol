@@ -57,6 +57,7 @@ function carregarMensagens() {
 }
 
 function renderizarMensagensTela(mensagem) {
+    console.log("renderizou");
     let dadosMensagens = mensagem.data;
     let corpoMensagem = document.querySelector(".mensagensBatePapo");
     corpoMensagem.innerHTML = "";
@@ -88,7 +89,7 @@ function renderizarMensagensTela(mensagem) {
     })
 
     corpoMensagem.children[corpoMensagem.children.length - 1].scrollIntoView();
-    setInterval(atualizarMensagens, 10000);
+    setInterval(atualizarMensagens, 3000);
 }
 
 function alertar() {
@@ -130,9 +131,7 @@ function deslogado() {
 }
 
 function atualizarMensagens() {
-    let corpoMensagem = document.querySelector(".mensagensBatePapo");
-    corpoMensagem.innerHTML = "";
-    entrar();
+    carregarMensagens();
 }
 
 function limparinput() {
