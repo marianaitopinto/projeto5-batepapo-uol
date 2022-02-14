@@ -119,3 +119,7 @@ button {
 .principal button {
     background-color: #FFFFFF;
 }
+
+.login::placeholder {
+    text-align: center;
+}

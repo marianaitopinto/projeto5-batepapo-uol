@@ -26,6 +26,7 @@ function entrar() {
     const esconder = document.querySelector(".telaLogin");
     esconder.classList.add("escondido")
     setInterval(verificarConexaoUsuarios, 5000);
+    setInterval(atualizarMensagens, 3000);
     carregarMensagens();
 }
 
@@ -53,15 +54,12 @@ function carregarMensagens() {
     const mensagens = axios.get("https://mock-api.driven.com.br/api/v4/uol/messages");
     mensagens.then(renderizarMensagensTela);
     mensagens.catch(alertar);
-
 }
 
 function renderizarMensagensTela(mensagem) {
-    console.log("renderizou");
     let dadosMensagens = mensagem.data;
     let corpoMensagem = document.querySelector(".mensagensBatePapo");
     corpoMensagem.innerHTML = "";
-    console.log(dadosMensagens);
 
     dadosMensagens.forEach(item => {
 
@@ -89,11 +87,10 @@ function renderizarMensagensTela(mensagem) {
     })
 
     corpoMensagem.children[corpoMensagem.children.length - 1].scrollIntoView();
-    setInterval(atualizarMensagens, 3000);
 }
 
 function alertar() {
-    alert("Deu ruim no carregamento");
+    alert("Não foi possível carregar novas mensagens.");
 }
 
 function enviarMensagem() {
@@ -137,5 +134,3 @@ function atualizarMensagens() {
 function limparinput() {
     document.querySelector("footer input").value = "";
 }
-
-//entrarSala();
